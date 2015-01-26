@@ -1,0 +1,38 @@
+
+/*
+  Author: yuhan.wyh<yuhan.wyh@alibaba-inc.com>
+  Create: Fri Jan 16 2015 17:25:03 GMT+0800 (CST)
+*/
+
+"use strict";
+
+var fs   = require( 'fs' );
+
+var argv = process.argv.splice( 2 );
+
+var args = {};
+
+for( var item, i = 0; i < argv.length; i ++ ) {
+  item = argv[ i ];
+  if( 0 === item.indexOf( '--' ) ) {
+    args[ item.replace( '--', '' ) ] = argv[ ++i ]
+  }
+}
+
+var filePath    = args.filePath;
+
+var fileContent = fs.readFileSync( filePath, 'utf-8' );
+
+var coverage_metric = [];
+
+fileContent.replace( /<small>\((.+)\)<\/small>/g, function ( match, $1 ) {
+  coverage_metric.push( $1.replace(/\s+/g,'') );
+} );
+
+var branch = coverage_metric[ 1 ];
+
+var line = coverage_metric[ 3 ];
+
+console.log( 'CODE COVERAGE RESULT OF LINES IS: %s', line );
+
+console.log( 'CODE COVERAGE RESULT OF BRANCHES IS: %s', branch );

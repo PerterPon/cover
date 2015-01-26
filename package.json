@@ -1,0 +1,22 @@
+{
+  "name": "node-cover",
+  "main": "./index.js",
+  "version": "1.0.0",
+  "dependencies": {
+    "coffee-script" : "git+ssh://git@gitlab.alibaba-inc.com:yuhan.wyh/coffeescript.git",
+    "co"            : "*",
+    "koa"           : "*",
+    "koa-compose"   : "*",
+    "statuses"      : "*",
+    "only"          : "*",
+    "response-patch": "*"
+  },
+  "devDependencies": {
+  },
+  "engines": {
+    "node":  ">=0.11.11"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}
