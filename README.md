@@ -3,7 +3,7 @@
 
 简介...
 
-### Basic Useage
+### Basic Usage
 
 ```
 var cover = require( 'node-cover' );
