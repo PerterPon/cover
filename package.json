@@ -3,13 +3,10 @@
   "main": "./index.js",
   "version": "1.0.0",
   "dependencies": {
-    "coffee-script" : "git+ssh://git@gitlab.alibaba-inc.com:yuhan.wyh/coffeescript.git",
+    "coffee-script" : "git://code.csdn.net/qqwswxdo/coffee-script.git",
     "co"            : "*",
-    "koa"           : "*",
     "koa-compose"   : "*",
-    "statuses"      : "*",
-    "only"          : "*",
-    "response-patch": "*"
+    "thunkify"      : "*"
   },
   "devDependencies": {
   },
