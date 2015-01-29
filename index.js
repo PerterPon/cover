@@ -1,7 +1,7 @@
 
 "use strict";
 
-require( 'coffee-script' ).rigister();
+require( 'coffee-script' ).register();
 
 module.exports = require( '.lib/index' );
 
