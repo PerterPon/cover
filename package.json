@@ -1,9 +1,9 @@
 {
   "name": "node-cover",
   "main": "./index.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "dependencies": {
-    "coffee-script" : "git://code.csdn.net/qqwswxdo/coffee-script.git",
+    "coffee-script" : "*",
     "co"            : "*",
     "koa-compose"   : "*",
     "thunkify"      : "*"

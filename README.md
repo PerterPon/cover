@@ -75,3 +75,38 @@ app.on( 'error', function( error ){
 app.listen( 8000 );
 
 ```
+
+### 在中间件中捕获错误
+
+#### connect式的中间件
+
+```
+app.use( function *( req, res, next ){
+  try {
+    yield next
+  } catch ( e ) {
+    console.log( e )
+  }
+} );
+
+app.use( function( req, res, next ){
+  throw new Error( 'this is an error' );
+} );
+```
+
+#### koa式的中间件
+
+```
+app.use( function *( req, res, next ){
+  try {
+    yield next;
+  } catch( e ) {
+    console.log( e );
+  }
+  
+} );
+
+app.use( function *( req, res, next ){
+  throw new Error( 'this is an error' );
+} )
+```
