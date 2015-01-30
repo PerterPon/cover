@@ -26,15 +26,15 @@ app.use( function( req, res, next ){
 } );
 
 // koa 中间件
-app.use( function( req, res, next ){
+app.use( function *( req, res, next ){
   
   yield next;
 
 } );
 
-app.use( function( req, res, next ){
+app.use( function *( req, res, next ){
 
-  var fileContent = yield readFile './test.txt', 'utf-8'
+  var fileContent = yield readFile( './test.txt', 'utf-8' );
 
   res.end( fileContent );
 
