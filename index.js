@@ -1,6 +1,8 @@
 
 "use strict";
 
-require( 'coffee-script' ).register();
-
-module.exports = require( './lib/index' );
+if ( require.extensions['.coffee'] ) {
+  module.exports = require( './lib/index.coffee' );
+} else {
+  module.exports = require( './out/lib/index.js' );
+}
