@@ -36,7 +36,7 @@ class Index extends events.EventEmitter
   #  * @return {[type]}         [description]
   ##
   listen : ( args... ) ->
-    @http.listen.apply http, args
+    @http.listen.apply @http, args
 
   # /**
   #  * [callback description]
