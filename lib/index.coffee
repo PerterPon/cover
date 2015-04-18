@@ -24,22 +24,19 @@ class Index extends events.EventEmitter
 
   middleware : []
 
+  constructor : ->
+    super()
+
+    # init http server
+    @http = http.createServer @callback()
+
   # /**
   #  * [listen description]
   #  * @param  {[type]} args... [description]
   #  * @return {[type]}         [description]
   ##
   listen : ( args... ) ->
-    { middleware } = @
-
-    # init http server
-    app = http.createServer @callback()
-
-    # listen
-    app.listen.apply app, args
-
-    # export http object
-    @http = app
+    @http.listen.apply http, args
 
   # /**
   #  * [callback description]
