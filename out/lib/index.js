@@ -31,7 +31,8 @@ Index = (function(_super) {
     args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     middleware = this.middleware;
     app = http.createServer(this.callback());
-    return app.listen.apply(app, args);
+    app.listen.apply(app, args);
+    return this.http = app;
   };
 
   Index.prototype.callback = function() {

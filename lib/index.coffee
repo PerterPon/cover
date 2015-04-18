@@ -38,6 +38,9 @@ class Index extends events.EventEmitter
     # listen
     app.listen.apply app, args
 
+    # export http object
+    @http = app
+
   # /**
   #  * [callback description]
   #  * @return {Function} [description]
