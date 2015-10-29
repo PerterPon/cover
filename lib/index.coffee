@@ -44,16 +44,13 @@ class Index extends events.EventEmitter
   ##
   callback : ->
     { respond, middleware } = @
-      
-    # compose all of the middlewares
-    gen = compose middleware
 
-    # wrap by co
-    fn  = co.wrap gen
+    # compose all of the middlewares
+    fn = compose middleware
 
     # return this middleware to http server
     ( req, res ) =>
-      fn.call { req, res }
+      fn { req, res }
         .catch @onerror req, res
 
   # /**
@@ -119,8 +116,8 @@ class Index extends events.EventEmitter
       wm = thunkify wm
 
     # wrap fn to adapt the param way.
-    fn = ( next ) ->
-      { req, res } = @
+    fn = co.wrap ( context, next ) ->
+      { req, res } = context
 
       # if this wm is an generator
       if 'GeneratorFunction' is wm.constructor.name
